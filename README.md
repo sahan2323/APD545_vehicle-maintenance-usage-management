@@ -28,29 +28,30 @@ The main window passes its existing service objects to the summary window throug
 
 ## Project Structure
 
+~~~
 src/main/
 ├── java/
-│ ├── module-info.java
-│ └── ca/seneca/workshop2/
-│ ├── VmumsApplication.java # Entry point
-│ ├── model/
-│ │ ├── Vehicle.java
-│ │ ├── MaintenanceRecord.java
-│ │ └── UsageLog.java
-│ ├── service/
-│ │ ├── VehicleService.java
-│ │ ├── MaintenanceService.java
-│ │ └── UsageService.java
-│ └── controller/
-│ ├── MainController.java
-│ └── SummaryController.java
+│   ├── module-info.java
+│   └── ca/seneca/workshop2/
+│       ├── VmumsApplication.java      # Entry point
+│       ├── model/
+│       │   ├── Vehicle.java
+│       │   ├── MaintenanceRecord.java
+│       │   └── UsageLog.java
+│       ├── service/
+│       │   ├── VehicleService.java
+│       │   ├── MaintenanceService.java
+│       │   └── UsageService.java
+│       └── controller/
+│           ├── MainController.java
+│           └── SummaryController.java
 └── resources/ca/seneca/workshop2/
-├── view/
-│ ├── MainView.fxml
-│ └── SummaryView.fxml
-└── css/
-└── styles.css
-
+    ├── view/
+    │   ├── MainView.fxml
+    │   └── SummaryView.fxml
+    └── css/
+        └── styles.css
+~~~
 
 ## Tech Stack
 
@@ -65,9 +66,9 @@ src/main/
 
 **Terminal** (requires Maven):
 
-```bash
+~~~bash
 mvn clean javafx:run
-```
+~~~
 
 ## Academic Integrity
 
