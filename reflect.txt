@@ -1,0 +1,40 @@
+/**********************************************
+Workshop # 2
+Course: APD545 - Fall 2026
+Last Name: Hewa Gallage
+First Name: Sahan Vimukthi
+ID: 178061230
+Section: NBB
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: Sahan Vimukthi Hewa Gallage
+Date: October 16, 2026
+**********************************************/
+
+Workshop 2 Reflection - Vehicle Maintenance and Usage Management System
+
+For scalability, the main thing was keeping all the data inside the service classes.
+The controllers don't hold any lists, they just call VehicleService, MaintenanceService and UsageService.
+So if we wanted to add something new later, like fuel logs, I'd just make a FuelService the same way and the rest
+of the app wouldn't really change. Using a Map<Vehicle, List<...>> also helps since each vehicle has its own list, so
+finding a vehicle's records is just a lookup instead of going through every record every time. I also passed the same service
+objects into the summary window with setServices instead of making new ones, so both windows always see the same data.
+
+The data handling part had a few challenges for me. At first I wasn't sure how to link records to the right vehicle, but
+the Map solved that since the vehicle itself is the key. I also made the get methods return a copy of the list so the
+controllers can't change the data directly. For validation I had to cover a lot of cases like empty fields, letters in
+number fields, negative cost or km, years that don't make sense, and end dates before start dates. I made the date pickers
+non-editable so people have to pick from the calendar, which stopped any problems with typed dates. On the setup side I also
+lost some time because my project didn't have JavaFX in the pom at first, so I kept getting module not found errors until
+I fixed it.
+
+For usability vs efficiency, I tried to keep it simple. My prof suggested removing the vehicle list on the side to keep it
+cleaner, so I changed it to a dropdown at the top which works for both the maintenance and usage tabs. Every mistake shows
+an alert that says exactly what's wrong instead of crashing. He also wanted the summary window the same size as the main
+one so I made it open at the same size and spot. The summary footer shows totals like total cost and km so you get the info
+quickly. I also changed the font and made the typed text darker because it was too thin and hard to read before. On the
+technical side, the HashMap lookups keep things fast, and returning copies is a bit of extra work but I think it's worth it
+to keep the data safe.
+
+References:
+- Ali, M. Segment 4 - MVC Pattern. APD545.
+- Workshop 2 Document - Vehicle Maintenance and Usage Management System.

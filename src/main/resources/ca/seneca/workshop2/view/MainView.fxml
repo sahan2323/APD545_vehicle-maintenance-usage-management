@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="640" prefWidth="1000" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.seneca.workshop2.controller.MainController">
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="header">
+            <VBox spacing="2">
+                <Label styleClass="app-title" text="VMUMS" />
+                <Label styleClass="app-subtitle" text="Vehicle Maintenance &amp; Usage Management" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#onOpenSummary" styleClass="primary-button" text="View Summary" />
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3">
+
+            <!-- Left: vehicle list -->
+            <VBox minWidth="220" spacing="10" styleClass="sidebar" />
+
+            <!-- Right: selected vehicle + tabs -->
+            <VBox spacing="16" styleClass="content">
+                <HBox alignment="CENTER_LEFT" spacing="8" styleClass="selected-bar">
+                    <Label styleClass="field-label" text="Selected vehicle:" />
+                    <ComboBox fx:id="vehicleComboBox" prefWidth="320" promptText="Choose a vehicle" />
+                </HBox>
+
+                <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+                    <!-- Add Vehicle -->
+                    <Tab text="Add Vehicle">
+                        <VBox spacing="18" styleClass="form-card">
+                            <Label styleClass="form-title" text="New Vehicle" />
+                            <GridPane hgap="14" vgap="12">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="110" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+
+                                <Label styleClass="field-label" text="Make" GridPane.rowIndex="0" />
+                                <TextField fx:id="makeField" promptText="e.g. Toyota" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label styleClass="field-label" text="Model" GridPane.rowIndex="1" />
+                                <TextField fx:id="modelField" promptText="e.g. Corolla" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label styleClass="field-label" text="Year" GridPane.rowIndex="2" />
+                                <TextField fx:id="yearField" promptText="e.g. 2021" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label styleClass="field-label" text="Type" GridPane.rowIndex="3" />
+                                <ComboBox fx:id="typeComboBox" maxWidth="Infinity" promptText="Select type" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Sedan" />
+                                            <String fx:value="SUV" />
+                                            <String fx:value="Truck" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                        <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                        </rowConstraints>
+                            </GridPane>
+                            <HBox alignment="CENTER_RIGHT">
+                                <Button onAction="#onSaveVehicle" styleClass="primary-button" text="Save Vehicle" />
+                            </HBox>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Maintenance -->
+                    <Tab text="Maintenance">
+                        <VBox spacing="18" styleClass="form-card">
+                            <Label styleClass="form-title" text="Add Maintenance Record" />
+                            <GridPane hgap="14" vgap="12">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="110" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+
+                                <Label styleClass="field-label" text="Date" GridPane.rowIndex="0" />
+                                <DatePicker fx:id="maintenanceDatePicker" maxWidth="Infinity" promptText="Select date" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label styleClass="field-label" text="Description" GridPane.rowIndex="1" />
+                                <TextArea fx:id="descriptionArea" prefRowCount="3" promptText="e.g. Oil change and tire rotation" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label styleClass="field-label" text="Cost ($)" GridPane.rowIndex="2" />
+                                <TextField fx:id="costField" promptText="e.g. 120.50" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                        </rowConstraints>
+                            </GridPane>
+                            <HBox alignment="CENTER_RIGHT">
+                                <Button onAction="#onSaveMaintenance" styleClass="primary-button" text="Save Record" />
+                            </HBox>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Usage -->
+                    <Tab text="Usage">
+                        <VBox spacing="18" styleClass="form-card">
+                            <Label styleClass="form-title" text="Add Usage Log" />
+                            <GridPane hgap="14" vgap="12">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="110" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+
+                                <Label styleClass="field-label" text="Start Date" GridPane.rowIndex="0" />
+                                <DatePicker fx:id="startDatePicker" maxWidth="Infinity" promptText="Select start date" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label styleClass="field-label" text="End Date" GridPane.rowIndex="1" />
+                                <DatePicker fx:id="endDatePicker" maxWidth="Infinity" promptText="Select end date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label styleClass="field-label" text="Kilometers" GridPane.rowIndex="2" />
+                                <TextField fx:id="kilometersField" promptText="e.g. 350" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                        </rowConstraints>
+                            </GridPane>
+                            <HBox alignment="CENTER_RIGHT">
+                                <Button onAction="#onSaveUsage" styleClass="primary-button" text="Save Record" />
+                            </HBox>
+                        </VBox>
+                    </Tab>
+
+                </TabPane>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

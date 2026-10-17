@@ -1,0 +1,269 @@
+/* ---------- Base ---------- */
+.root {
+    -fx-font-family: "System";
+    -fx-font-size: 13px;
+    -fx-focus-color: #4169E1;
+    -fx-faint-focus-color: #4169E122;
+}
+
+/* ---------- Header ---------- */
+.header {
+    -fx-background-color: #0B1F3A;
+    -fx-padding: 16 24 16 24;
+}
+
+.app-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: #A9B8D4;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Buttons ---------- */
+.primary-button {
+    -fx-background-color: #4169E1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #3457C8;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #2A47A8;
+}
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-text-fill: #4169E1;
+    -fx-font-weight: bold;
+    -fx-border-color: #4169E1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 18 7 18;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #EEF2FD;
+}
+
+/* ---------- SplitPane ---------- */
+.split-pane {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: #0B1F3A;
+    -fx-padding: 0 1 0 1;
+}
+
+/* ---------- Sidebar (vehicle list) ---------- */
+.sidebar {
+    -fx-background-color: #13294B;
+    -fx-padding: 18;
+}
+
+.sidebar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-hint {
+    -fx-text-fill: #A9B8D4;
+    -fx-font-size: 12px;
+}
+
+.vehicle-list,
+.vehicle-list:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.vehicle-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E2E8F0;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 6;
+}
+
+.vehicle-list .list-cell:filled:hover {
+    -fx-background-color: #1E3A66;
+}
+
+.vehicle-list .list-cell:filled:selected {
+    -fx-background-color: #4169E1;
+    -fx-text-fill: white;
+}
+
+/* ---------- Main content area ---------- */
+.content {
+    -fx-background-color: #F4F6FA;
+    -fx-padding: 20;
+}
+
+.selected-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #DDE3EE;
+    -fx-border-radius: 8;
+    -fx-padding: 12 16 12 16;
+}
+
+.selected-value {
+    -fx-text-fill: #4169E1;
+    -fx-font-weight: bold;
+}
+
+.field-label {
+    -fx-text-fill: #4A5568;
+    -fx-font-weight: bold;
+}
+
+.form-card {
+    -fx-background-color: white;
+    -fx-padding: 24;
+}
+
+.form-title {
+    -fx-text-fill: #0B1F3A;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.text-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-background-radius: 6;
+}
+
+/* ---------- Tabs ---------- */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #E3E8F2;
+    -fx-background-radius: 6 6 0 0;
+    -fx-padding: 6 16 6 16;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #4A5568;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #4169E1;
+}
+
+.tab-pane .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-pane > .tab-content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 0 8 8 8;
+}
+
+/* ---------- Summary window ---------- */
+.toolbar {
+    -fx-background-color: white;
+    -fx-padding: 12 20 12 20;
+    -fx-border-color: transparent transparent #DDE3EE transparent;
+}
+
+.footer {
+    -fx-background-color: white;
+    -fx-padding: 12 20 12 20;
+    -fx-border-color: #DDE3EE transparent transparent transparent;
+}
+
+/* ---------- Tables ---------- */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #DDE3EE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #13294B;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-padding: 6 4 6 4;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #4169E1;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* ---------- Form input contrast ---------- */
+.text-field,
+.text-area,
+.date-picker .text-field {
+    -fx-text-fill: #1A202C;
+    -fx-prompt-text-fill: #6B7280;
+    -fx-font-size: 14px;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #1A202C;
+    -fx-font-size: 14px;
+}
+
+.combo-box .list-cell:empty {
+    -fx-text-fill: #6B7280;
+}
+
+.text-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 6;
+}
+
+/* ---------- Typed text: darker and solid ---------- */
+.root {
+    -fx-text-inner-color: #111827;
+}
+
+.text-input {
+    -fx-text-fill: #111827;
+    -fx-font-size: 14px;
+}
